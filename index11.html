@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Made By Coder Thinking  -->
+
+
+  <title>hello</title>
+</head>
+<style>
+
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+
+
+body {
+	font-family:  'Norican', cursive;
+	background: #090d00;
+	text-align: center;
+    margin: 0;
+}
+
+img{
+  
+  height: 250px;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+
+}
+
+#text {
+  font-size: 25px;
+ 
+  color: white;
+  margin-top: 0px;
+}
+
+
+
+button{
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+  font-family: 'Norican', cursive;
+  text-transform: capitalize;
+  background:red;
+    color: white;
+    border-radius: 5px;
+    transition: transform 300ms;
+    
+    margin: 0px 20px;
+}
+
+
+
+    #whatsapp-share-button {
+       
+  color: white;
+  padding: 1px 3px;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+   
+
+
+
+
+
+</style>
+<body>
+
+
+  <input type="image"  style="margin-top: 20px;
+  margin-right: 300px;
+  width:30px ; height:30px" 
+  src="share.png"
+  id="whatsapp-share-button">
+  <section class="img">
+    <img src="Love.png" alt="">
+  </section>
+
+  <div class="container">
+    <p id="text"></p>
+   
+  </div>
+
+  <section id="btn" style="display: none;">
+
+    <button onclick="myFunction()" >Yes ,I am</button>
+
+    <button id="myButton" style="position: absolute;">No</button>
+  
+  </section>
+
+ <footer>
+  
+ </footer> 
+
+
+  
+
+  
+
+  <script>
+    
+//     document.getElementById("whatsapp-share-button").addEventListener("click", function() {
+//   window.location.href = "whatsapp://send?text=Current%20Page%20URL:%20" + encodeURIComponent(window.location.href);
+// });
+  
+
+
+const text = document.querySelector('#text');
+// const btn = document.querySelector('#btn');
+
+const str =  '"From the moment I met you, I knew you were the one for me. Will you do me the honor of being my partner for life?".';
+let i = 0;
+
+function autoType() {
+  if (i < str.length) {
+    text.innerHTML += str.charAt(i);
+    i++;
+    setTimeout(autoType, 100);
+  } else {
+    btn.style.display = 'block';
+  }
+}
+
+autoType();
+
+
+
+
+
+
+
+  </script>
+  
+</body>
+</html>

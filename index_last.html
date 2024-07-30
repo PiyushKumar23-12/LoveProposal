@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOVE PROPOSAL</title>
+    <style>
+        body {
+            background-color: rgb(255, 124, 146);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .panel {
+            max-width: 90%;
+            width: 500px;
+            background-color: white;
+            border-radius: 20px;
+            text-align: center;
+            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .panel h1 {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 2.4rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .panel h2 {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .panel img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        button {
+            height: 50px;
+            width: 100px;
+            background-color: #e74c3c;
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            position: relative;
+        }
+
+        #yes:hover,
+        #no:hover {
+            cursor: pointer;
+            background-color: #c0392b;
+            transform: scale(1.1);
+        }
+
+        #no {
+            margin-left: 20px;
+            position: absolute;
+        }
+
+        #button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Media Queries for Responsive Design */
+        @media (max-width: 768px) {
+            .panel h1 {
+                font-size: 2rem;
+            }
+
+            .panel h2 {
+                font-size: 1.8rem;
+            }
+
+            button {
+                height: 45px;
+                width: 90px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .panel h1 {
+                font-size: 1.6rem;
+            }
+
+            .panel h2 {
+                font-size: 1.4rem;
+            }
+
+            .panel img {
+                max-width: 200px;
+            }
+
+            button {
+                height: 40px;
+                width: 80px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="panel">
+        <h1 id="name1"></h1>
+        <img src="https://gifman.net/wp-content/uploads/2019/06/ursinho-fofo-apaixonado.gif" alt="Love Bear">
+        <h2>Will you date me?</h2>
+        <div id="button-container">
+            <a href="index4.html">
+                <button id="yes" onclick="song()">Yes</button>
+            </a>
+            <button onmouseover="touch()" id="no">No</button>
+        </div>
+    </div>
+
+    <script>
+        function touch() {
+            var btn = document.getElementById("no");
+            var x = window.innerWidth;
+            var y = window.innerHeight;
+
+            var maxX = x - btn.offsetWidth;
+            var maxY = y - btn.offsetHeight;
+
+            var posX = Math.floor(Math.random() * maxX);
+            var posY = Math.floor(Math.random() * maxY);
+
+            btn.style.left = posX + "px";
+            btn.style.top = posY + "px";
+        }
+
+        let name_data = localStorage.getItem("name");
+        let n = document.getElementById("name1");
+        n.innerHTML = `I LOVE YOU  ${name_data}`;
+
+        function song() {
+            const audio = new Audio('your-audio-file-path.mp3'); // Replace with your audio file path
+            audio.play();
+        }
+    </script>
+</body>
+
+</html>

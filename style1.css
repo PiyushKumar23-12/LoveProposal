@@ -1,0 +1,86 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Zeyada&display=swap');
+
+.paper
+{
+    padding: 100px 100px;
+}
+body
+{
+    height: 100vh;
+    /* background-color: black; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('modern-polygon-background_1035-7506.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 1100px;
+}
+.paper
+{
+
+    position: absolute;
+    background: url('paper.webp');
+    background-size: 500px;
+    background-position: center center;
+    padding: 20px 100px;
+    transform: rotateZ(-5deg);
+    box-shadow: 1px 15px 20px 0px rgba(0,0,0,0.5);
+}
+
+.paper p{
+    font-family: 'zeyada';
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+.image
+{
+    background:pink;
+}
+.image1
+{
+    background:rgb(250, 114, 137);
+}
+#heart
+{
+    height: 70px;
+    position: absolute;
+    top: 25px;
+    left: 77px;
+    z-index: -1;
+}
+#heart:hover{
+    cursor: pointer;
+}
+.heart h3
+{
+    position: absolute;
+    top: 15px;
+    left: 115px;
+}
+#h3
+{
+    font-family: 'zeyada';
+    color: black;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+a
+{
+    text-decoration: none;
+}
+#moon
+{
+    background: url('pexels-samer-daboul-746111-2.jpg');
+    background-size: cover;
+    background-repeat: none;
+    width: 140px;
+    height: 120px;
+}
+#moon p{
+    position: absolute;
+    bottom: 10px;
+    left: 35px;
+    color: wheat;
+}

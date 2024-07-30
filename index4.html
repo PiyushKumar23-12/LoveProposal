@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finale</title>
+    <link rel="stylesheet" href="style4.css">
+</head>
+
+<body>
+    <audio id="aud" autoplay loop>
+        <source src="WhatsApp Audio 2024-03-24 at 21.01.21_48adfbb6.mp3" type="audio/mp3">
+    </audio>
+    <img id="image" src="—Pngtree—beautiful loving couple spending time_14337461.png" alt="" >
+    <div class="heading">
+        <h1>I Love You ❤️</h1>
+    </div>
+    <div class="text">
+        <p  id="data"> </p>
+    </div>
+
+    <script>
+        let t = document.getElementById("data");
+        const str = '"Thank you for making me the happiest person in the world by accepting my proposal.I can not wait to start this new journey together and build a lifetime of memories"'
+        let i = 0;
+        
+        function autoType() {
+    
+            if (i < str.length) {
+                data.innerHTML += str.charAt(i);
+                i++;
+                setTimeout(autoType, 200);
+            } else {
+                t.style.display = 'block';
+            }
+        }
+        
+        autoType();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Proposal</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <h1 id="love">Love</h1>
+            <h1>is above all</h1>
+        </div>
+        <h1>the gift of oneself</h1>
+        <div class="box1">
+            <p>I Promise to hold your hand regardless of what happens till Death.My life is wonderful because you are
+                with me,you make me happy even if I feel sad and low.Your smile lightens up my life.</p>
+        </div>
+        <input id="name" type="text" placeholder="May I have your name?" class="search-input">
+        <div class="img">
+        </div>
+    </div>
+    <script>
+        var wage = document.getElementById("name");
+       
+        
+        wage.addEventListener("keydown", function (e) {
+            if (e.keyCode === 13) {
+                let x = document.querySelectorAll('#name')[0].value;
+                wage.blur();
+                let key="name"  
+                localStorage.setItem(key,x)
+                window.location.href='index2.html';
+                // http://127.0.0.1:5500/index2.html
+                // window.open('http://127.0.0.1:5500/index2.html');   
+            }
+        });
+    </script>
+</body>
+</html>
