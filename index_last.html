@@ -8,115 +8,122 @@
     <title>LOVE PROPOSAL</title>
     <style>
         body {
-            background-color: rgb(255, 124, 146);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        }
+        background-color: rgb(255, 124, 146);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      }
 
-        .panel {
-            max-width: 90%;
-            width: 500px;
-            background-color: white;
-            border-radius: 20px;
-            text-align: center;
-            padding: 30px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
+      .panel {
+        max-width: 90%;
+        width: 500px;
+        background-color: white;
+        border-radius: 20px;
+        text-align: center;
+        padding: 30px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
 
+      .panel h1 {
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        font-size: 2.4rem;
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      .panel h2 {
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        font-size: 2rem;
+        margin-bottom: 30px;
+        color: #555;
+      }
+
+      .panel img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        border-radius: 15px;
+        margin-bottom: 30px;
+      }
+
+      button {
+        height: 50px;
+        width: 100px;
+        background-color: #e74c3c;
+        border: none;
+        border-radius: 12px;
+        color: white;
+        font-size: 1rem;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        position: relative;
+        margin: 0 10px; /* Add margin to ensure buttons don't overlap */
+      }
+
+      button:hover {
+        cursor: pointer;
+        background-color: #c0392b;
+        transform: scale(1.1);
+      }
+
+      #button-container {
+        display: flex;
+        justify-content: center; /* Center buttons horizontally */
+        align-items: center;
+        gap: 20px; /* Ensure there's enough space between the buttons */
+      }
+
+      /* Media Queries for Responsive Design */
+      @media (max-width: 768px) {
         .panel h1 {
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            font-size: 2.4rem;
-            color: #333;
-            margin-bottom: 20px;
+          font-size: 2rem;
         }
 
         .panel h2 {
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            font-size: 2rem;
-            margin-bottom: 30px;
-            color: #555;
-        }
-
-        .panel img {
-            width: 100%;
-            max-width: 300px;
-            height: auto;
-            border-radius: 15px;
-            margin-bottom: 30px;
+          font-size: 1.8rem;
         }
 
         button {
-            height: 50px;
-            width: 100px;
-            background-color: #e74c3c;
-            border: none;
-            border-radius: 12px;
-            color: white;
-            font-size: 1rem;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            position: relative;
-        }
-
-        #yes:hover,
-        #no:hover {
-            cursor: pointer;
-            background-color: #c0392b;
-            transform: scale(1.1);
-        }
-
-        #no {
-            margin-left: 180px;
-            position: absolute;
+          height: 45px;
+          width: 90px;
+          font-size: 0.9rem;
         }
 
         #button-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+          gap: 15px; /* Adjust gap for smaller screens */
+        }
+      }
+
+      @media (max-width: 480px) {
+        .panel h1 {
+          font-size: 1.6rem;
         }
 
-        /* Media Queries for Responsive Design */
-        @media (max-width: 768px) {
-            .panel h1 {
-                font-size: 2rem;
-            }
-
-            .panel h2 {
-                font-size: 1.8rem;
-            }
-
-            button {
-                height: 45px;
-                width: 90px;
-                font-size: 0.9rem;
-            }
+        .panel h2 {
+          font-size: 1.4rem;
         }
 
-        @media (max-width: 480px) {
-            .panel h1 {
-                font-size: 1.6rem;
-            }
-
-            .panel h2 {
-                font-size: 1.4rem;
-            }
-
-            .panel img {
-                max-width: 200px;
-            }
-
-            button {
-                height: 40px;
-                width: 80px;
-                font-size: 0.8rem;
-            }
+        .panel img {
+          max-width: 200px;
         }
+
+        button {
+          height: 40px;
+          width: 80px;
+          font-size: 0.8rem;
+        }
+
+        #button-container {
+          flex-direction: column; /* Stack buttons vertically on very small screens */
+          gap: 10px; /* Adjust gap for vertical alignment */
+        }
+      }
     </style>
 </head>
 
