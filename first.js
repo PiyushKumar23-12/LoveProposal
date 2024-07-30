@@ -1,70 +1,79 @@
-let highestZ=1;
+let highestZ = 1;
 
-class Paper
-{
+class Paper {
+  holdingPaper = false;
 
-    holdingPaper=false;
+  prevMouseX = 0; // Initial/default coordinates of mouse
+  prevMouseY = 0;
 
-    prevMouseX=0;//initial/default coordinates of mouse
-    prevMouseY=0;
+  mouseX = 0; // Current coordinates of mouse
+  mouseY = 0;
 
-    mouseX=0;//current coordinates of mouse
-    mouseY=0;
+  velocityX = 0; // Speed of animation
+  velocityY = 0;
 
-    velocityX=0;//kitna speed se animation hoga
-    velocityY=0;
+  currentPaperX = 0; // New position of paper
+  currentPaperY = 0;
 
-    currentPaperX=0;//new position of paper
-    currentPaperY=0;
+  init(paper) {
+    const onMouseDown = (e) => {
+      this.holdingPaper = true;
+      paper.style.zIndex = highestZ; // Increase z-index of selected paper
+      highestZ += 1;
 
+      if (e.type === 'mousedown' && e.button === 0) {
+        // Mouse down
+        this.prevMouseX = e.clientX;
+        this.prevMouseY = e.clientY;
+      } else if (e.type === 'touchstart') {
+        // Touch start
+        this.prevMouseX = e.touches[0].clientX;
+        this.prevMouseY = e.touches[0].clientY;
+      }
+    };
 
-    init(paper){
+    const onMouseMove = (e) => {
+      if (this.holdingPaper) {
+        if (e.type === 'mousemove') {
+          this.mouseX = e.clientX;
+          this.mouseY = e.clientY;
+        } else if (e.type === 'touchmove') {
+          this.mouseX = e.touches[0].clientX;
+          this.mouseY = e.touches[0].clientY;
+        }
 
-        paper.addEventListener('mousedown',(e)=>{
+        this.velocityX = this.mouseX - this.prevMouseX;
+        this.velocityY = this.mouseY - this.prevMouseY;
 
-            this.holdingPaper=true;
-            paper.style.zIndex=highestZ;//on selecting the particular paper uska z-index bada ho jaaye wrt other papers
-            highestZ+= 1;
-            //e.button===0 left click,1--> scroll and 2 for right click
-            if(e.button === 0){
-                this.prevMouseX=this.mouseX;
-                this.prevMouseY=this.mouseY;
-                //prev mouse ka position current mouse ka position ban jaa raha hai
-            }
-        })
+        this.currentPaperX += this.velocityX;
+        this.currentPaperY += this.velocityY;
 
-        document.addEventListener('mousemove',(e)=>
-        {
-            //we are storing the current mouse position in the mouseX and mouseY variables
-            this.mouseX=e.clientX;//method that return x-coordinate of mouse event
-            this.mouseY=e.clientY;//method that return y-coordinate of mouse event
+        this.prevMouseX = this.mouseX;
+        this.prevMouseY = this.mouseY;
 
-            this.velocityX=this.mouseX - this.prevMouseX;//final position-initial position
-            this.velocityY=this.mouseY - this.prevMouseY;
+        paper.style.transform = `translateX(${this.currentPaperX}px) translateY(${this.currentPaperY}px)`;
+      }
+    };
 
-            if(this.holdingPaper){
-                this.currentPaperX += this.velocityX;//find the current position of paper
-                this.currentPaperY += this.velocityY;
+    const onMouseUp = () => {
+      this.holdingPaper = false;
+    };
 
-                this.prevMouseX=this.mouseX;//prev position ko update kar de rahe hai
-                this.prevMouseY=this.mouseY;
+    // Add mouse event listeners
+    paper.addEventListener('mousedown', onMouseDown);
+    document.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('mouseup', onMouseUp);
 
-                paper.style.transform = `translateX(${this.currentPaperX}px) translateY(${this.currentPaperY}px)`;
-            }
-
-        })
-
-        window.addEventListener('mouseup',(e)=>
-        {
-            this.holdingPaper=false;
-        })
-
-    }
+    // Add touch event listeners
+    paper.addEventListener('touchstart', onMouseDown);
+    document.addEventListener('touchmove', onMouseMove);
+    window.addEventListener('touchend', onMouseUp);
+  }
 }
 
-const papers=Array.from(document.querySelectorAll('.paper'))
+const papers = Array.from(document.querySelectorAll('.paper'));
 
-papers.forEach( paper =>{
-    const p=new Paper();
-    p.init(paper);
-})
+papers.forEach((paper) => {
+  const p = new Paper();
+  p.init(paper);
+});
